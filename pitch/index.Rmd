@@ -1,0 +1,30 @@
+---
+title       : Demistifying Metal Detector specifications
+subtitle    : 
+author      : Hrafnkell Eiríksson
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## The salesman challenge
+
+"Our metal detector is 98% accurate. You can easily verify it by running 50 metal contaminated pieces through it. It should fail to detect the metal only 1 time max."
+
+--- .class #id 
+
+## The reality
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(scales)
+trials<-rbinom(10000,50, 0.98)
+ggplot(data=data.frame(trials=trials,meet_specs=(trials>=49)),aes(x=trials,fill=meet_specs))+
+  geom_bar(aes(y = (..count..)/sum(..count..)), binwidth = 0.5)+ylab("Ratio of trials [%]") + 
+  xlab("Count of rejects in trial") + 
+  scale_fill_discrete("Specs are met")+scale_y_continuous(labels=percent)
+```
