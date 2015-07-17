@@ -1,21 +1,28 @@
 ---
 title       : Demistifying Metal Detector specifications
 subtitle    : 
-author      : Hrafnkell Eiríksson
+author      : Hrafnkell Eiriksson
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
+mode        : standalone # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## The salesman challenge
+## The salesman pitch
 
-"Our metal detector is 98% accurate. You can easily verify it by running 50 metal contaminated pieces through it. It should fail to detect the metal only 1 time max."
+ > "Our metal detector will find pieces with metal with high accuracy. It will only miss one out of 50 or less. You can easily verify this by running a trial of 50 pieces."
+
 
 --- .class #id 
+
+## The problem
+
+Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to belive why the pitch is true.
+
+This salesman is trying to say that his metal detector product has a 98% probability of true positive detection, 98% probability of detecting metal in pieces when there truly is metal.
 
 ## The reality
 
@@ -28,3 +35,11 @@ ggplot(data=data.frame(trials=trials,meet_specs=(trials>=49)),aes(x=trials,fill=
   xlab("Count of rejects in trial") + 
   scale_fill_discrete("Specs are met")+scale_y_continuous(labels=percent)
 ```
+
+## Translating statistics and probability into 
+
+## The solution: Interactively explore the influence of probability on possible trial outcomes
+
+We have created an interactive web page to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
+
+They can even use this web page to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.
