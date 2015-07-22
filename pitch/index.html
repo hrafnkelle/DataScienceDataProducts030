@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Understanding Metal Detector specifications</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Understanding Metal Detector specifications">
+  <meta name="author" content="Hrafnkell Eiriksson">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Understanding Metal Detector specifications</h1>
+    <h2></h2>
+    <p>Hrafnkell Eiriksson<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The salesman pitch</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Salesman: </p>
+
+<blockquote>
+<p>&quot;Our metal detector will detect and reject pieces contaminated with metal with high accuracy. It will find 98% percent or more of the metal contaminated objects.&quot;</p>
+</blockquote>
+
+<p>Customer:</p>
+
+<blockquote>
+<p>&quot;Sounds great but I&#39;m doubtful. Lets do a trial where we run 50 contaminated pieces. If you are right it should miss at most 1 and we&#39;ll buy one.&quot;</p>
+</blockquote>
+
+<p>Should the salesman accept these terms?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The problem</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to believe why the pitch is true.</p>
+
+<p>Customers want to be sure they get what they pay for and eliminate risk.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Distribution of 50 piece trial outcomes w/ 98% detection probability</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"> </p>
+
+<p>It is very likely that more than one piece will be missed! In this case the probability is</p>
+
+<pre><code class="r">probability.missing.more.than.one&lt;-sum(dbinom(1:48,size=50,prob=0.98))
+round(probability.missing.more.than.one,2)
+</code></pre>
+
+<pre><code>## [1] 0.26
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The theory is complicated</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Lots of trials will actually fail to detect more than one piece even though the underlying probability is 98%.</p>
+
+<p>Understanding this requires insight into probability, statistics, Bernoulli trials and hypothesis testing.</p>
+
+<p>Those who require metal detectors are usually food producers, not statisticians.</p>
+
+<p>Clearly there is an opportunity to help them understand the specifications and what they really mean.</p>
+
+<ul>
+<li>How many pieces should be used for verifying the specs?</li>
+<li>What detection probability is really needed?</li>
+<li>What should be the terms of the trial so the salesman has a good chance of getting a sale?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>The solution: Interactive simulation explorer for metal detector specifications</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We have created an interactive web page to train our sales people and help them understand the influence of detection probability on possible trial outcomes. </p>
+
+<p>They can even use this web page to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The salesman pitch'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The problem'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Distribution of 50 piece trial outcomes w/ 98% detection probability'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The theory is complicated'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='The solution: Interactive simulation explorer for metal detector specifications'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
