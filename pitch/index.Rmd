@@ -66,6 +66,6 @@ Clearly there is an opportunity to help them understand the specifications and w
 ---
 ## The solution: Interactive simulation explorer for metal detector specifications
 
-We have created an interactive web page to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
+We have created an [interactive web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
 
-They can even use this web page to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.
+They can even use [this web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.
