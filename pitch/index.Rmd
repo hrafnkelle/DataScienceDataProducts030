@@ -1,5 +1,5 @@
 ---
-title       : Demistifying Metal Detector specifications
+title       : Understanding Metal Detector specifications
 subtitle    : 
 author      : Hrafnkell Eiriksson
 job         : 
@@ -13,32 +13,58 @@ knit        : slidify::knit2slides
 
 ## The salesman pitch
 
- > "Our metal detector will find pieces with metal with high accuracy. It will only miss one out of 50 or less. You can easily verify this by running a trial of 50 pieces."
+Salesman: 
+ > "Our metal detector will detect and reject pieces contaminated with metal with high accuracy. It will find 98% percent or more of the metal contaminated objects."
 
+Customer:
+ > "Sounds great but I'm doubtful. Lets do a trial where we run 50 contaminated pieces. If you are right it should miss at most 1 and we'll buy one."
+
+Should the salesman accept these terms?
 
 --- .class #id 
 
 ## The problem
 
-Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to belive why the pitch is true.
+Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to believe why the pitch is true.
 
-This salesman is trying to say that his metal detector product has a 98% probability of true positive detection, 98% probability of detecting metal in pieces when there truly is metal.
+Customers want to be sure they get what they pay for and eliminate risk.
 
-## The reality
+---
 
-```{r, echo=FALSE}
+## Distribution of 50 piece trial outcomes w/ 98% detection probability
+
+```{r, echo=FALSE,fig.width=8, fig.height=3.5}
 library(ggplot2)
 library(scales)
-trials<-rbinom(10000,50, 0.98)
-ggplot(data=data.frame(trials=trials,meet_specs=(trials>=49)),aes(x=trials,fill=meet_specs))+
-  geom_bar(aes(y = (..count..)/sum(..count..)), binwidth = 0.5)+ylab("Ratio of trials [%]") + 
-  xlab("Count of rejects in trial") + 
-  scale_fill_discrete("Specs are met")+scale_y_continuous(labels=percent)
+    size<-50
+    p<-dbinom(1:size,size,0.98)
+    cp<-cumsum(p)
+    cpi<-which(cp>0.001)
+    ggplot(data=data.frame(x=cpi,y=100*p[cpi]),aes(x=x,y=y))+geom_bar(stat="identity")+ylab("Percentage of trials [%]") + xlab("Detected count in trial")
 ```
 
-## Translating statistics and probability into 
+It is very likely that more than one piece will be missed! In this case the probability is
+```{r}
+probability.missing.more.than.one<-sum(dbinom(1:48,size=50,prob=0.98))
+round(probability.missing.more.than.one,2)
+```
 
-## The solution: Interactively explore the influence of probability on possible trial outcomes
+---
+## The theory is complicated 
+
+Lots of trials will actually fail to detect more than one piece even though the underlying probability is 98%.
+
+Understanding this requires insight into probability, statistics, Bernoulli trials and hypothesis testing.
+
+Those who require metal detectors are usually food producers, not statisticians.
+
+Clearly there is an opportunity to help them understand the specifications and what they really mean.
+* How many pieces should be used for verifying the specs?
+* What detection probability is really needed?
+* What should be the terms of the trial so the salesman has a good chance of getting a sale?
+
+---
+## The solution: Interactive simulation explorer for metal detector specifications
 
 We have created an interactive web page to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
 
