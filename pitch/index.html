@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Understanding Metal Detector specifications</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Understanding Metal Detector specifications">
+  <meta name="author" content="Hrafnkell Eiriksson">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Understanding Metal Detector specifications</h1>
+    <h2></h2>
+    <p>Hrafnkell Eiriksson<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The salesman pitch</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Salesman: </p>
+
+<blockquote>
+<p>&quot;Our metal detector will detect and reject pieces contaminated with metal with high accuracy. It will find 98% percent or more of the metal contaminated objects.&quot;</p>
+</blockquote>
+
+<p>Customer:</p>
+
+<blockquote>
+<p>&quot;Sounds great but I&#39;m doubtful. Lets do a trial where we run 50 contaminated pieces. If you are right it should miss at most 1 and we&#39;ll buy one.&quot;</p>
+</blockquote>
+
+<p>Should the salesman accept these terms?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The problem</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to believe why the pitch is true.</p>
+
+<p>Customers want to be sure they get what they pay for and eliminate risk.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Distribution of 50 piece trial outcomes w/ 98% detection probability</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+<p>It is very likely that more than one piece will be missed! In this case the probability is</p>
+
+<pre><code class="r">probability.missing.more.than.one&lt;-sum(dbinom(1:48,size=50,prob=0.98))
+round(probability.missing.more.than.one,2)
+</code></pre>
+
+<pre><code>## [1] 0.26
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The theory is complicated</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Lots of trials will actually fail to detect more than one piece even though the underlying probability is 98%.</p>
+
+<p>Understanding this requires insight into probability, statistics, Bernoulli trials and hypothesis testing.</p>
+
+<p>Those who require metal detectors are usually food producers, not statisticians.</p>
+
+<p>Clearly there is an opportunity to help them understand the specifications and what they really mean.</p>
+
+<ul>
+<li>How many pieces should be used for verifying the specs?</li>
+<li>What detection probability is really needed?</li>
+<li>What should be the terms of the trial so the salesman has a good chance of getting a sale?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>The solution: Interactive simulation explorer for metal detector specifications</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We have created an <a href="https://hrafnkell.shinyapps.io/MetalDetectorSpecs">interactive web page</a> to train our sales people and help them understand the influence of detection probability on possible trial outcomes. </p>
+
+<p>They can even use <a href="https://hrafnkell.shinyapps.io/MetalDetectorSpecs">this web page</a> to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The salesman pitch'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The problem'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Distribution of 50 piece trial outcomes w/ 98% detection probability'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The theory is complicated'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='The solution: Interactive simulation explorer for metal detector specifications'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
