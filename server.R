@@ -16,4 +16,10 @@ shinyServer(function(input, output) {
     cpi<-which(cp>0.001)
     ggplot(data=data.frame(x=cpi,y=100*p[cpi]),aes(x=x,y=y))+geom_bar(stat="identity")+ylab("Percentage of trials [%]") + xlab("Detected count in trial")
   })
+  
+  output$missMoreThanOne <- renderText({
+    size<-input$countInTrial
+    paste('Probability of missing more than one in this trial: ',round(sum(dbinom(1:(size-2),size,input$prob/100)),2))
+  })
 })
+

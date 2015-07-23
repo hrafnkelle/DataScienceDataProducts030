@@ -68,4 +68,4 @@ Clearly there is an opportunity to help them understand the specifications and w
 
 We have created an [interactive web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
 
-They can even use [this web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to help the customer understand what quality assurance checks of his new metal detector really mean. Missing two detections might not indicate that the metal detector is not working correctly.
+Sales people can even use [this web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to help the customer understand what quality assurance checks of his new metal detector really mean. Missing more than one detection during a trial might be perfectly normal.
