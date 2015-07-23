@@ -21,9 +21,7 @@ Customer:
 
 Should the salesman accept these terms?
 
---- .class #id 
-
-## The problem
+### The problem
 
 Salesmen have the task of pitching a product to a customer, making him understand it and give him a good reason to believe why the pitch is true.
 
@@ -50,6 +48,7 @@ round(probability.missing.more.than.one,2)
 ```
 
 ---
+
 ## The theory is complicated 
 
 Lots of trials will actually fail to detect more than one piece even though the underlying probability is 98%.
@@ -64,6 +63,7 @@ Clearly there is an opportunity to help them understand the specifications and w
 * What should be the terms of the trial so the salesman has a good chance of getting a sale?
 
 ---
+
 ## The solution: Interactive simulation explorer for metal detector specifications
 
 We have created an [interactive web page](https://hrafnkell.shinyapps.io/MetalDetectorSpecs) to train our sales people and help them understand the influence of detection probability on possible trial outcomes. 
