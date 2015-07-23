@@ -2,13 +2,14 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  headerPanel("Demistifying Metal detector specifications"),
+  headerPanel("Understanding Metal detector specifications"),
   p('A salesman tells you that according to specifications his metal detector will only miss one or less out of 50 test pieces with metal. The salesman was trying to make a 98% probability of detection understandable to the customer. But is claim is only true "on the average".'),
   p('Naturally the customer wants to validate this claim with a trial: Run a number of pieces know to have metal and see how many are detected.'),
   tags$ul(tags$li(strong('How many pieces should be run through the detector?')),
           tags$li(strong('How many should the salesman say it detects based on the detection probability?'))),
   mainPanel(
     h2('Explore the distribution of trial outcomes'),    
+    textOutput("missMoreThanOne"),
     plotOutput("histogramPlot"),
     p('The plot above shows different trial outcomes and how often they would occur if the trial was repeated many many times. ')
   ),
